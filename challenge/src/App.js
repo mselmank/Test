@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index";
+
+import Navbar from "./components/Navbar";
+
+import { All } from "./screen/All";
+import { MyFaves } from "./screen/MyFaves";
+import { useState } from "react";
 
 function App() {
+  const [all, setAll] = useState(true);
+
+  const showAll = () => {
+    setAll(true);
+  };
+  const showFavs = () => {
+    setAll(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="home-view">
+      <div>
+        <Navbar />
+      </div>
+      <div className="box-container-tab">
+        <div
+          className="rectangle rectangle-tab-active"
+          onClick={() => showAll()}
         >
-          Learn React
-        </a>
-      </header>
+          All
+        </div>
+        <div
+          className="rectangle rectangle-tab-active"
+          onClick={() => showFavs()}
+        >
+          My faves
+        </div>
+      </div>
+      <>
+        {all ? (
+          <div>
+            <All />
+          </div>
+        ) : (
+          <div>
+            <MyFaves />
+          </div>
+        )}
+      </>
     </div>
   );
 }

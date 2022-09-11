@@ -11,3 +11,156 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.hacker-news  {
+  width: 13rem;
+  height: 1.75rem;
+  object-fit: contain;
+  font-family: Baskerville;
+  font-size: 1.75rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color: #3b3b3b;
+}
+.rectangle-2-Copy {
+  width: 90rem;
+  height: 7.125rem;
+  margin: 0 0 4.375rem;
+  padding: 2.75rem 67.625rem 2.625rem 9.375rem;
+  box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
+  background-image: linear-gradient(to bottom, #ececec -32%, #fff 124%);
+}
+.rectangle{
+  width: 6.125rem;
+  height: 1.938rem;
+  padding: 0.188rem 1rem 0 1.063rem;
+  border-radius: 2px;
+  border: solid 1px #d6d6d6;
+  display: flex;
+  align-items: center;
+}
+.home-view {
+  width: 90rem;
+  height: 64rem;
+  padding: 0 0 6.125rem;
+  background-color: #fcfcfc;
+}
+.rectangle-26 {
+  width: 15rem;
+  height: 2rem;
+  margin: 3.938rem 7.125rem 0.063rem 9.375rem;
+  padding: 0.313rem 0.75rem 0.313rem 0.75rem;
+  border-radius: 4px;
+  border: solid 1px #2e2e2e;
+  background-color: #fff;
+}
+.box-container{
+  display: flex;
+  justify-content: center;
+  display:flex;
+  align-items: center;
+
+
+
+}
+.box-container-tab{
+  display: flex;
+  justify-content: center;
+  display:flex;
+  align-items: center;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+  
+  
+
+}
+.rectangle:active{
+  border: solid 0.5px;
+  color: #1797ff;
+  margin-bottom:-3px;
+
+  font-weight: bold;
+    }
+.rectangle{
+  border: solid 1px;
+  color: #7d7b7b;
+  
+}
+
+
+.text {
+  width: 11.438rem;
+  height: 1.375rem;
+  margin: 0 1.187rem 0 0;
+  font-family: Roboto;
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: #343434;
+}
+.cards{
+  width: 34.375rem;
+  height: 5.625rem;
+  margin: 2.375rem 9.375rem 1.875rem 2.5rem;
+  padding: 0 0 0 1.625rem;
+  opacity: 0.8;
+  border-radius: 6px;
+  border: solid 1px #979797;
+  background-color: #fff;
+  
+}
+.icon-favorite {
+  width: 1.5rem;
+  height: 1.375rem;
+  object-fit: contain;
+  
+}
+
+.icon-rectangule {
+  width: 4.25rem;
+  height: 5.50rem;
+  opacity: 0.06;
+  border-radius: 6px;
+  border: solid 1px #606060;
+  background-color: #606060;
+  
+
+
+}
+
+.mask {
+  width: 0.625rem;
+  height: 0.438rem;
+  background-color: #2e2e2e;
+}
+
+label {
+    font-size: 1rem;
+    padding-right: 30px;
+}
+
+select {
+    font-size: 1rem;
+    padding: 2px 5px;
+}
+
+
+
+.techs{
+  width: 15rem;
+  height: 2rem;
+  margin: 3.938rem 7.125rem 0.063rem 9.375rem;
+  padding: 0.313rem 0.75rem 0.313rem 0.75rem;
+  border-radius: 4px;
+  border: solid 1px #2e2e2e;
+  background-color: #fff;
+
+
+}
