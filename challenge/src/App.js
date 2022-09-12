@@ -21,6 +21,7 @@ function App() {
       <div>
         <Navbar />
       </div>
+
       <div className="box-container-tab">
         <div
           className="rectangle rectangle-tab-active"
@@ -35,17 +36,7 @@ function App() {
           My faves
         </div>
       </div>
-      <>
-        {all ? (
-          <div>
-            <All />
-          </div>
-        ) : (
-          <div>
-            <MyFaves />
-          </div>
-        )}
-      </>
+      <>{all ? <All /> : <MyFaves />}</>
     </div>
   );
 }
