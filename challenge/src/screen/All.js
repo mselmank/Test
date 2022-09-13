@@ -1,50 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 
-const items = [
-  {
-    id: 1,
-    created_at: "2006-10-09T18:21:51.000Z",
-    author: "pg",
-    title: "Y Combinator",
-    url: "http://ycombinator.com",
-    text: null,
-    points: 57,
-    parent_id: null,
-    children: [
-      {
-        id: 15,
-        created_at: "2006-10-09T19:51:01.000Z",
-        author: "sama",
-        text: "&#34;the rising star of venture capital&#34; -unknown VC eating lunch on SHR",
-        points: 5,
-        parent_id: 1,
-        children: [
-          {
-            id: 17,
-            created_at: "2006-10-09T19:52:45.000Z",
-            author: "pg",
-            text: "Is there anywhere to eat on Sandhill Road?",
-            points: 5,
-            parent_id: 15,
-            children: [],
-          },
-        ],
-      },
-    ],
-  },
-];
 export const All = () => {
+  const [data, setData] = useState();
+  const fetchData = async () => {
+    const response = await fetch(
+      "https://hn.algolia.com/api/v1/search?query=bar&tags=comment"
+    );
+    if (!response.ok) {
+      throw new Error("data could not be fetched");
+    } else {
+      return response.json();
+    }
+  };
+  useEffect(() => {
+    fetchData()
+      .then((res) => {
+        setData(res);
+      })
+      .catch((e) => {
+        console.log("message", e.message);
+      });
+  }, [data]);
+  /* console.log("data", data); */
+
   return (
     <div>
+      {/* {<pre>{JSON.stringify(data, null, 2)}</pre> } */}
       <select className="rectangle-26">
         <option value="">Select your new</option>
         <option value="angular">Angular</option>
         <option value="react">React</option>
         <option value="vuejs">Vuejs</option>
       </select>
-      <div>
-        <Card items={items} />;
+
+      <div className="row">
+        <div className="column">
+          <Card items={data} />
+        </div>
       </div>
     </div>
   );

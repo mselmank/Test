@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import { All } from "./screen/All";
 import { MyFaves } from "./screen/MyFaves";
 import { useState } from "react";
+import Pagination from "./components/Pagination";
 
 function App() {
   const [all, setAll] = useState(true);
@@ -21,6 +22,7 @@ function App() {
       <div>
         <Navbar />
       </div>
+
       <div className="box-container-tab">
         <div
           className="rectangle rectangle-tab-active"
@@ -35,17 +37,10 @@ function App() {
           My faves
         </div>
       </div>
-      <>
-        {all ? (
-          <div>
-            <All />
-          </div>
-        ) : (
-          <div>
-            <MyFaves />
-          </div>
-        )}
-      </>
+      <div>
+        <>{all ? <All /> : <MyFaves />}</>
+      </div>
+      <div className=""></div>
     </div>
   );
 }
