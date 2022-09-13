@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import { All } from "./screen/All";
 import { MyFaves } from "./screen/MyFaves";
 import { useState } from "react";
+import Pagination from "./components/Pagination";
 
 function App() {
   const [all, setAll] = useState(true);
@@ -36,7 +37,10 @@ function App() {
           My faves
         </div>
       </div>
-      <>{all ? <All /> : <MyFaves />}</>
+      <div>
+        <>{all ? <All /> : <MyFaves />}</>
+      </div>
+      <div className=""></div>
     </div>
   );
 }

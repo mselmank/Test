@@ -6,10 +6,10 @@ export default function Hero(props) {
   return (
     <div className="box-container-tab">
       <div className="rectangle" onClick={changeTab(true)}>
-        All
+        <h5 className="title">All</h5>
       </div>
       <div className="rectangle" onClick={myFaves(false)}>
-        My faves
+        <h5 className="title">My faves</h5>
       </div>
     </div>
   );

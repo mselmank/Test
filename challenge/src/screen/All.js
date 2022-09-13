@@ -26,7 +26,7 @@ export const All = () => {
 
   return (
     <div>
-      {/*  {<pre>{JSON.stringify(data, null, 2)}</pre>} */}
+      {/* {<pre>{JSON.stringify(data, null, 2)}</pre> } */}
       <select className="rectangle-26">
         <option value="">Select your new</option>
         <option value="angular">Angular</option>
@@ -34,11 +34,6 @@ export const All = () => {
         <option value="vuejs">Vuejs</option>
       </select>
 
-      <div className="row">
-        <div className="column">
-          <Card items={data} />
-        </div>
-      </div>
       <div className="row">
         <div className="column">
           <Card items={data} />
