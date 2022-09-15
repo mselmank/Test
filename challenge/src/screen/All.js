@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
+import Pagination from "../components/Pagination";
+import { ReactComponent as AngularIcon } from "../icons/angular.svg";
 
-export const All = () => {
-  const [data, setData] = useState();
+export const All = (props) => {
+  const { addToFavorite } = props;
+  const pageNumberLimit = 5;
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [maxPageLimit, setMaxPageLimit] = useState(9);
+  const [minPageLimit, setMinPageLimit] = useState(0);
+  const [search, setSearch] = useState("");
 
   const fetchData = async () => {
     const response = await fetch(
-      "https://hn.algolia.com/api/v1/search_by_date?query=angular&page=0"
+      `https://hn.algolia.com/api/v1/search_by_date?&query=${search}&page=${currentPage}`
     );
     if (!response.ok) {
       throw new Error("data could not be fetched");
@@ -14,28 +23,77 @@ export const All = () => {
       return response.json();
     }
   };
+
   useEffect(() => {
+    setLoading(true);
     fetchData()
       .then((res) => {
         setData(res);
+        setLoading(false);
       })
       .catch((e) => {
         console.log("message", e.message);
       });
-  }, [data]);
-  /*  console.log("data", data); */
+  }, [search, currentPage]);
 
+  const onPageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const onPrevClick = () => {
+    if ((currentPage - 1) % pageNumberLimit === 0) {
+      setMaxPageLimit(maxPageLimit - pageNumberLimit);
+      setMinPageLimit(minPageLimit - pageNumberLimit);
+    }
+    setCurrentPage((prev) => prev - 1);
+  };
+
+  const onNextClick = () => {
+    if (currentPage + 1 > maxPageLimit) {
+      setMaxPageLimit(maxPageLimit + pageNumberLimit);
+      setMinPageLimit(minPageLimit + pageNumberLimit);
+    }
+    setCurrentPage((prev) => prev + 1);
+  };
+
+  const paginationAttributes = {
+    currentPage,
+    maxPageLimit,
+    minPageLimit,
+    response: data,
+  };
   return (
     <div>
-      {/* {<pre>{JSON.stringify(data, null, 2)}</pre>} */}
-      <select className="rectangle-26">
-        <option value="">Select your new</option>
-        <option value="angular">Angular</option>
-        <option value="react">React</option>
-        <option value="vuejs">Vuejs</option>
-      </select>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      <form>
+        {/* The challenge included adding an icon inside each option, but the instructions say don't use 3rd party library for the UI components. The <option> tag doesn't support SVG just plain text
+        Anyways here is *** <AngularIcon/> ****.
+        Link: https://stackoverflow.com/questions/46596240/svg-inside-option-element/46596722#46596722
+        
+        */}
+        <select
+          className="rectangle-26"
+          onChange={(event) => setSearch(event.target.value)}
+        >
+          <option value="angular">Angular</option>
+          <option value="react">React</option>
+          <option value="vuejs">Vuejs</option>
+        </select>
+      </form>
       <div>
-        <Card res={data} />;
+        <Card res={data} addToFavorite={addToFavorite} />
+      </div>
+      <div>
+        {!loading ? (
+          <Pagination
+            {...paginationAttributes}
+            onPrevClick={onPrevClick}
+            onNextClick={onNextClick}
+            onPageChange={onPageChange}
+          />
+        ) : (
+          <div> Loading... </div>
+        )}
       </div>
     </div>
   );

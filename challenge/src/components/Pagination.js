@@ -1,24 +1,9 @@
 import React from "react";
 
-const renderData = (data) => {
-  return (
-    <ul>
-      {data.map((d) => (
-        <li key={d["_id"]}>
-          {" "}
-          The passenger having id {d["_id"].slice(
-            d["_id"].length - 5
-          )} using {d.airline[0].name} airlines
-        </li>
-      ))}
-    </ul>
-  );
-};
 const Pagination = (props) => {
   // init
   const { currentPage, maxPageLimit, minPageLimit } = props;
-  const totalPages = props.response.totalPages - 1;
-  const data = props.response.data;
+  const totalPages = props.response.nbPages - 1;
 
   // build page numbers list based on total number of pages
   const pages = [];
@@ -32,6 +17,7 @@ const Pagination = (props) => {
 
   const handleNextClick = () => {
     props.onNextClick();
+    console.log("page", pages);
   };
 
   const handlePageClick = (e) => {
@@ -55,7 +41,6 @@ const Pagination = (props) => {
     }
   });
 
-  // page ellipses
   let pageIncrementEllipses = null;
   if (pages.length > maxPageLimit) {
     pageIncrementEllipses = <li onClick={handleNextClick}>&hellip;</li>;
@@ -66,23 +51,54 @@ const Pagination = (props) => {
   }
 
   return (
-    <div className="mainPagination">
-      <div className="mainData">{renderData(data)}</div>
+    <div className="main">
       <ul className="pageNumbers">
         <li>
           <button onClick={handlePrevClick} disabled={currentPage === pages[0]}>
-            Prev
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill="#fff" fill-opacity=".01" d="M0 0h16v16H0V0z" />
+              <path
+                d="m10.333 12-4-4 4-4"
+                stroke="#000"
+                stroke-width="1.333"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </button>
         </li>
         {pageDecremenEllipses}
+
         {pageNumbers}
+
         {pageIncrementEllipses}
         <li>
           <button
             onClick={handleNextClick}
             disabled={currentPage === pages[pages.length - 1]}
           >
-            Next
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill="#fff" fill-opacity=".01" d="M0 0h16v16H0V0z" />
+              <path
+                d="m6.333 4 4 4-4 4"
+                stroke="#000"
+                stroke-width="1.333"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </button>
         </li>
       </ul>
