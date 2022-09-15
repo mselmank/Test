@@ -63,7 +63,7 @@ code {
   width: 15rem;
   height: 2rem;
   margin: 4rem 22rem 20px;
-  padding: 0.313rem 0.75rem 0.313rem 0.75rem;
+  padding: 0.400rem 0.75rem 0.313rem 1rem;
   border-radius: 4px;
   border: solid 1px #2e2e2e;
   background-color: #fff;
@@ -267,8 +267,16 @@ select {
 }
 
 .pageNumbers li.active {
-  background-color: white;
-  color: black;
+  background-color: #1890ff;
+  color: rgb(252, 247, 247);
+   font-weight: bold;
+  padding-left: 8px;
+  margin-left: 2px;
+  padding-top: 5px;
+  margin-top: 5px;
+  border-radius: 6px;
+  width: 15px;
+  height: 15px;
 
 }
 
@@ -282,9 +290,11 @@ select {
 
 .pageNumbers li.button:hover{
   background-color: white;
-  color: black;
+  color:  white;
+  border-radius: 6px;
 }
 
 .pageNumbers li.button:focus{
   outline: none;
+  
 }

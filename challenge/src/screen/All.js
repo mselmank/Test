@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
+import { ReactComponent as AngularIcon } from "../icons/angular.svg";
 
 export const All = (props) => {
   const { addToFavorite } = props;
-  const pageNumberLimit = 100;
+  const pageNumberLimit = 5;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
-  const [maxPageLimit, setMaxPageLimit] = useState(5);
+  const [maxPageLimit, setMaxPageLimit] = useState(9);
   const [minPageLimit, setMinPageLimit] = useState(0);
   const [search, setSearch] = useState("");
 
@@ -63,7 +64,13 @@ export const All = (props) => {
   };
   return (
     <div>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <form>
+        {/* The challenge included adding an icon inside each option, but the instructions say don't use 3rd party library for the UI components. The <option> tag doesn't support SVG just plain text
+        Anyways here is *** <AngularIcon/> ****.
+        Link: https://stackoverflow.com/questions/46596240/svg-inside-option-element/46596722#46596722
+        
+        */}
         <select
           className="rectangle-26"
           onChange={(event) => setSearch(event.target.value)}
