@@ -1,19 +1,5 @@
 import React from "react";
 
-const renderData = (data) => {
-  return (
-    <ul>
-      {data?.map((d) => (
-        <li key={d["_id"]}>
-          {" "}
-          The passenger having id {d["_id"].slice(
-            d["_id"].length - 5
-          )} using {d.airline[0].name} airlines
-        </li>
-      ))}
-    </ul>
-  );
-};
 const Pagination = (props) => {
   // init
   const { currentPage, maxPageLimit, minPageLimit } = props;
@@ -66,7 +52,6 @@ const Pagination = (props) => {
 
   return (
     <div className="main">
-      <div className="mainData">{renderData(data)}</div>
       <ul className="pageNumbers">
         <li>
           <button onClick={handlePrevClick} disabled={currentPage === pages[0]}>
