@@ -3,7 +3,7 @@ import React from "react";
 const renderData = (data) => {
   return (
     <ul>
-      {data.map((d) => (
+      {data?.map((d) => (
         <li key={d["_id"]}>
           {" "}
           The passenger having id {d["_id"].slice(
@@ -55,7 +55,6 @@ const Pagination = (props) => {
     }
   });
 
-  // page ellipses
   let pageIncrementEllipses = null;
   if (pages.length > maxPageLimit) {
     pageIncrementEllipses = <li onClick={handleNextClick}>&hellip;</li>;
@@ -66,7 +65,7 @@ const Pagination = (props) => {
   }
 
   return (
-    <div className="mainPagination">
+    <div className="main">
       <div className="mainData">{renderData(data)}</div>
       <ul className="pageNumbers">
         <li>
