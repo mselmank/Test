@@ -36,7 +36,7 @@ function App() {
           My faves
         </div>
       </div>
-      {all ? <All /> : <MyFaves />}
+      <All all={all} />
     </div>
   );
 }

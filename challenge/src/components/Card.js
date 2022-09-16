@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import moment from "moment";
 
 function Card(props) {
-  const { res } = props;
+  const { res, handleFavorites } = props;
   const [favorite, setFavorite] = useState([]);
-  const [fillHeart, setFillHeart] = useState(false);
 
   const formatDate = () => {
     let format = moment().format();
@@ -19,6 +18,7 @@ function Card(props) {
   const addToFavorite = (id) => {
     const data = res.hits.find((item) => item.id === id);
     setFavorite([...favorite, data]);
+    handleFavorites([...favorite, data]);
     console.log("favoritos", favorite);
   };
 
@@ -68,7 +68,9 @@ function Card(props) {
                 width="24"
                 height="22"
                 viewBox="0 0 24 22"
-                onClick={() => addToFavorite(element.id)}
+                onClick={() => {
+                  addToFavorite(element.id);
+                }}
               >
                 <path
                   fill="#DD0031"
