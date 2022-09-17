@@ -59,6 +59,14 @@ export const All = (props) => {
   const handleFavorites = () => {
     setFav();
   };
+  /*  useEffect(() => {
+    localStorage.setItem("search", search ? search : "");
+  }, [search]);
+     useEffect(() => {
+    const ls = localStorage.getItem("search");
+    if (ls) return JSON.parse(ls);
+    else return [];
+  }, [search]);  */
   const paginationAttributes = {
     currentPage,
     maxPageLimit,

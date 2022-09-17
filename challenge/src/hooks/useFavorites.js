@@ -4,7 +4,7 @@ function useFavorites() {
   const [favorites, setFavorites] = useState(() => {
     const ls = localStorage.getItem("Favorites");
     if (ls) return JSON.parse(ls);
-    else return [];
+    else return [""];
   });
   const AddToFavorites = (objectID) => () => {
     const isFavorited = favorites.includes(objectID);
