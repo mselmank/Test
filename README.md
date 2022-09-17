@@ -6,8 +6,6 @@
 
     $ git clone https://github.com/mselmank/Test
 
-    $ cd chellenge
-
           
 3- ## Run Frontend🚀          
           
