@@ -13,7 +13,7 @@ function Card(props) {
   };
   const relativeTime = () => {
     let newDate = moment().startOf().fromNow();
-    return formatDate(newDate);
+    return newDate;
   };
 
   const getColumsForRow = () => {
@@ -35,11 +35,17 @@ function Card(props) {
             </svg>
 
             <div className="hours-ago">
-              <span>{relativeTime(element.created_at)}</span>
+              <span>{moment(`${element.created_at}`).startOf().fromNow()}</span>
             </div>
           </div>
           <div className="text-cards">
-            <span>{element.author}</span>
+            <span onClick={() => window.open(element.story_url, "_blank")}>
+              {isFavorited ? (
+                <span id="opacity">{element.story_title}</span>
+              ) : (
+                element.story_title
+              )}
+            </span>
           </div>
           <div className="icon-rectangule">
             <div className="icon-favorite">

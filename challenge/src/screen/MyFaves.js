@@ -3,6 +3,7 @@ import moment from "moment";
 import useFavorites from "../hooks/useFavorites";
 
 export const MyFaves = (props) => {
+  const { fav } = props;
   const [favorites, setFavorite] = useFavorites();
 
   const getColumsForRow = () => {
@@ -22,11 +23,13 @@ export const MyFaves = (props) => {
               />
             </svg>
             <div className="hours-ago">
-              <span></span>
+              <span>{element.created_at}</span>
             </div>
           </div>
           <div className="text-cards">
-            <span>{element.story_title}</span>
+            <span onClick={() => window.open(element.story_url, "_blank")}>
+              {element.story_title}
+            </span>
           </div>
           <div className="icon-rectangule">
             <div className="icon-favorite">

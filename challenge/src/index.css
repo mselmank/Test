@@ -290,6 +290,9 @@ select {
   border-radius: 6px;
   width: 15px;
   height: 15px;
+  border-style:solid;
+  border: #1f1e1e00;
+
 
 }
 
@@ -299,6 +302,8 @@ select {
   color: white;
   font-size: 1.5rem;
   cursor:pointer;
+
+
 }
 
 .pageNumbers li.button:hover{
@@ -310,4 +315,10 @@ select {
 .pageNumbers li.button:focus{
   outline: none;
   
+}
+
+#opacity{
+
+  color: #6b6b6b69;
+    text-align: center;
 }
