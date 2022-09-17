@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
-import { ReactComponent as AngularIcon } from "../icons/angular.svg";
 import { MyFaves } from "./MyFaves";
 
 export const All = (props) => {

@@ -157,6 +157,13 @@ width: 100%;
   
 
 }
+#button-like{
+
+  background-color:#d6d6d6 ;
+  border: #d6d6d6;
+
+
+}
 .icon-favorite {
   width: 1.5rem;
   height: 1.375rem;
