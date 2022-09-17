@@ -1,4 +1,0 @@
-[build]
-  base = "/test"
-  publish = "/build"
-  command = "CI=false npm run build"
