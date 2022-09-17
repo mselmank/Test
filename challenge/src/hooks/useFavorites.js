@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function useFavorites() {
   const [favorites, setFavorites] = useState(() => {
-    const ls = localStorage.getItem("favorites");
+    const ls = localStorage.getItem("Favorites");
     if (ls) return JSON.parse(ls);
     else return [];
   });
